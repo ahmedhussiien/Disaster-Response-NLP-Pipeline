@@ -68,12 +68,6 @@ To clone the git repository:
   <img src="images/system_design.png" />
 </p>
 
-## Acknowledgements
-* Udacity for providing the needed materials.
-* [Figure Eight](https://www.figure-eight.com/dataset/combined-disaster-response-data/) for the dataset which is composed of:
-    * categories.csv: Categories of the messages
-    * messages.csv: disaster response messages
-
     
 ## Screenshots
 1. The main page
@@ -96,6 +90,13 @@ To clone the git repository:
 ![train_classifier_sample](images/train_classifier.png "train_classifier.py run sample screenshot")
 ![train_classifier_sample](images/train_classifier2.png "train_classifier.py run sample screenshot")
 
+
+## Acknowledgements
+* Udacity for providing the needed materials.
+* [Figure Eight](https://www.figure-eight.com/dataset/combined-disaster-response-data/) for the dataset which is composed of:
+    * categories.csv: Categories of the messages
+    * messages.csv: disaster response messages
+    
 
 ## Overview of the training dataset
 As shown in the *Overview of Training Dataset* section in the main page the distribution of many classes is extremely skewed. The classifier in this project was not optimized very well to work in this case. In a real world application I would increase the weight of recall in the score significantly to catch more of these low representation classes.
