@@ -68,7 +68,7 @@ def save_data(df, database_filename):
         database_filename (str): database filename
 
     '''
-    engine = create_engine('sqlite:///'+ database_filename +'.db')
+    engine = create_engine('sqlite:///'+ database_filename)
     df.to_sql(TABLE_NAME, engine, index=False)
     engine.dispose()
 
@@ -102,16 +102,16 @@ def process_data(messages_filename, categories_filename, database_filename):
         database_filename (str)
     '''
 
-    print('Loading data ⌛...\n')
+    print('\nLoading data ⌛...')
     df = load_data(messages_filename, categories_filename)
 
-    print('Cleaning data 🧹... \n')
+    print('\nCleaning data 🧹...')
     df = clean_data(df)
 
-    print('Saving the database as {} 💾...\n'.format(database_filename))
+    print('\nSaving the database as {} 💾...'.format(database_filename))
     save_data(df, database_filename)
 
-    print('Done processing✅')
+    print('\nDone processing ✅')
 
 
 if __name__ == '__main__':
