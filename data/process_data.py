@@ -4,9 +4,9 @@ import pandas as pd
 from sqlalchemy import create_engine
 import argparse
 
-CATEGORIES_DEFAULT_FILENAME = 'categories.csv'
-MESSAGES_DEFAULT_FILENAME = 'messages.csv'
-DATABASE_DEFAULT_FILENAME = 'labeled_messages_db.sqlite3'
+CATEGORIES_DEFAULT_FILENAME = './data/categories.csv'
+MESSAGES_DEFAULT_FILENAME = './data/messages.csv'
+DATABASE_DEFAULT_FILENAME = './data/labeled_messages_db.sqlite3'
 TABLE_NAME = 'labeled_messages'
 
 

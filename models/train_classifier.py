@@ -22,8 +22,8 @@ from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
 
 TABLE_NAME = 'labeled_messages'
-MODEL_DEFAULT_FILENAME = 'classifier.pkl'
-DATABASE_DEFAULT_FILENAME = '../data/labeled_messages_db.sqlite3'
+MODEL_DEFAULT_FILENAME = './models/classifier.pkl'
+DATABASE_DEFAULT_FILENAME = './data/labeled_messages_db.sqlite3'
 
 def load_df(database_filename):
     '''return dataframe from the database filename
@@ -189,7 +189,7 @@ def train_model(database_filename, model_filename, do_grid_search):
     X, y, category_names = load_data(database_filename)
     X_train, X_test, y_train, y_test = train_test_split(X, y)
 
-    print('\nBuilding model 👷‍♂️...')
+    print('\nBuilding model 👷...')
     model = build_model(do_grid_search)
 
     print('\nTraining model 🐎...')
@@ -198,7 +198,7 @@ def train_model(database_filename, model_filename, do_grid_search):
     print('\nEvaluating model 💯...')
     evaluate_model(model, X_test, y_test, category_names)
 
-    print('\nSaving model as {} 💾...'.format(model_filename + '.plk'))
+    print('\nSaving model as {} 💾...'.format(model_filename))
     save_model(model, model_filename)
 
     print('\nTrained model saved ✅')
