@@ -3,10 +3,10 @@
 
 
 ## Description
-The dataset contains pre-labelled tweet and messages from real-life disaster events. The project aim is to build a Natural Language Processing (NLP) model to categorize messages on a real time basis to help filtering messages for faster disaster response.
+The dataset contains pre-labeled tweets and messages from real-life disaster events. The project aim is to build a Natural Language Processing (NLP) model to categorize messages on a real-time basis for faster disaster response.
 
 This project is divided into three main modules:
-1. ETL pipeline: Load, Clean and Saves the data into a sqlite database.
+1. ETL pipeline: Load, Clean and Saves the data into an SQLite database.
 2. NLP pipeline: Train a model on the cleaned data to classify messages in various categories.
 3. web app: to serve the model with a user interface.
 
@@ -99,4 +99,4 @@ To clone the git repository:
     
 
 ## Overview of the training dataset
-As shown in the *Overview of Training Dataset* section in the main page the distribution of many classes is extremely skewed. The classifier in this project was not optimized very well to work in this case. In a real world application I would increase the weight of recall in the score significantly to catch more of these low representation classes.
+As shown in the *Overview of Training Dataset* section on the main page the distribution of many classes is extremely skewed. The classifier in this project was not optimized very well to work in this case. In a real-world application I would increase the weight of recall in the score significantly to catch more of these low representation classes.
