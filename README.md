@@ -14,7 +14,7 @@ This project is divided into three main modules:
 ## Getting started
 ### Installing
 To clone the git repository:
-```git clone https://github.com/ahmedhussiien/Disaster-Response-NLP-pipeline.git```
+```git clone https://github.com/ahmedhussiien/Disaster-Response-NLP-Pipeline.git```
 
 
 ### Running the program
