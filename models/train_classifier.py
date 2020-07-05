@@ -25,6 +25,18 @@ TABLE_NAME = 'labeled_messages'
 MODEL_DEFAULT_FILENAME = 'classifier.pkl'
 DATABASE_DEFAULT_FILENAME = '../data/labeled_messages_db.sqlite3'
 
+def load_df(database_filename):
+    '''return dataframe from the database filename
+
+    Args:
+        database_filename (str)
+
+    Returns:
+        df (pandas.DataFrame): dataframe containing the data 
+    '''
+    engine = create_engine('sqlite:///' + database_filename)
+    return pd.read_sql_table(TABLE_NAME, engine)
+
 
 def load_data(database_filename):
     '''load data from the database and return X and y
@@ -38,8 +50,7 @@ def load_data(database_filename):
 
     '''
 
-    engine = create_engine('sqlite:///'+ database_filename +'.db')
-    df = pd.read_sql_table(TABLE_NAME, engine)
+    df = load_df(database_filename)
 
     X = df['message']
     y = df.drop(['message', 'genre', 'id', 'original'], axis=1)
@@ -149,18 +160,18 @@ def evaluate_model(model, X_test, y_test, category_names):
        print('Accuracy: {}\n\n'.format(accuracy_score(y_test.iloc[:, i].values, y_pred[:, i])))
 
 
-def save_model(model, model_name):
+def save_model(model, model_filename):
     '''saves the passed model to a pickle file
     '''
 
-    joblib.dump(model, model_name)
+    joblib.dump(model, model_filename)
 
-def load_model(model_name):
+def load_model(model_filename):
     '''load a scikit learn model from pickle file
 
     '''
 
-    return joblib.load(model_name)
+    return joblib.load(model_filename)
 
 
 def train_model(database_filename, model_filename, do_grid_search):
